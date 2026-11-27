@@ -1,4 +1,4 @@
-"""Command-line interface for lumen-prakash."""
+"""Command-line interface for prakash."""
 
 from __future__ import annotations
 
@@ -106,7 +106,7 @@ def _print_result(r: InspectResult, color: bool) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(
-        prog="lumen-prakash",
+        prog="prakash",
         description="Inspect TLS certificates, protocols, and expiry for a host.",
         epilog="Use only against hosts you own or are authorized to assess.",
     )

@@ -1,6 +1,6 @@
 """Minimal DER encoder used only by the tests to craft certificates."""
 
-from lumen_prakash import der
+from prakash import der
 
 
 def enc_len(n: int) -> bytes:

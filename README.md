@@ -1,12 +1,12 @@
-# lumen-prakash
+# prakash
 
 Inspect a server's TLS certificate, protocol, and version support from the terminal.
 
 ## The name
 
-*lumen* is Latin for "light". *prakāśa* (प्रकाश) is Sanskrit for "light" or
-"the act of making visible". TLS is normally opaque; lumen-prakash shines a
-light on what a server actually presents.
+*prakāśa* (प्रकाश) is Sanskrit for "light" or "the act of making visible".
+TLS is normally opaque; prakash shines a light on what a server actually
+presents.
 
 ## Features
 
@@ -29,21 +29,21 @@ Requires Python 3.10+. The full certificate chain is shown on Python 3.13+
 (which exposes the unverified chain); on older versions the leaf is shown.
 
 ```sh
-git clone https://github.com/Linuxboii/lumen-prakash
-cd lumen-prakash
-pip install .            # installs the `lumen-prakash` command
+git clone https://github.com/Linuxboii/prakash
+cd prakash
+pip install .            # installs the `prakash` command
 ```
 
 Or run from source:
 
 ```sh
-python -m lumen_prakash --help
+python -m prakash --help
 ```
 
 ## Usage
 
 ```
-lumen-prakash [flags] <host[:port]> [host...]
+prakash [flags] <host[:port]> [host...]
 
   -f, --file       file of hosts (one per line) for batch mode
   -p, --port       default port (443)
@@ -57,7 +57,7 @@ lumen-prakash [flags] <host[:port]> [host...]
 ### Inspect a host
 
 ```
-$ lumen-prakash example.com
+$ prakash example.com
 example.com:443
   negotiated : TLSv1.3  TLS_AES_256_GCM_SHA384 (256-bit)
   leaf   subject: example.com
@@ -75,7 +75,7 @@ example.com:443
 ### Batch expiry monitoring
 
 ```
-$ lumen-prakash --file hosts.txt --warn-days 21 --no-probe
+$ prakash --file hosts.txt --warn-days 21 --no-probe
 ```
 
 `hosts.txt` holds one `host` or `host:port` per line (`#` comments allowed).
@@ -85,7 +85,7 @@ cleanly into a monitoring job.
 ### JSON
 
 ```
-$ lumen-prakash example.com:443 --json
+$ prakash example.com:443 --json
 {
   "host": "example.com",
   "port": 443,
@@ -99,7 +99,7 @@ $ lumen-prakash example.com:443 --json
 
 ## A note on certificate verification
 
-lumen-prakash deliberately connects **without** trust verification. That is
+prakash deliberately connects **without** trust verification. That is
 required: the whole point is to inspect certificates that may be expired,
 self-signed, or otherwise untrusted, and a verifying client would simply refuse
 to complete the handshake. The tool reports what it sees; it does not establish
